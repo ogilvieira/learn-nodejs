@@ -5,8 +5,12 @@ var http = require('http');
 var server = http.createServer(function(request, response){
 	response.writeHead(200, {"Content-Type" : "text/html"});
 	response.write("<h1>Hello World!</h1>");
+	response.write("<br>");
+	response.write("<h3>First nodejs lesson</h3>");
 	response.end();
 });
 
-// run server in localhost:3000
-server.listen(3000);
+// show message when server run
+server.listen(3000, function(){
+	console.log('Server is run now!');
+});
