@@ -1,5 +1,6 @@
 // request http node module
 var http = require('http');
+var file = require('fs');
 
 // create server
 var server = http.createServer(function(request, response){
@@ -7,6 +8,10 @@ var server = http.createServer(function(request, response){
 	response.write("<h1>Hello World!</h1>");
 	response.write("<br>");
 	response.write("<h3>First nodejs lesson</h3>");
+	
+	var logfile = file.createWriteStream('./txt/log.txt', { flags: 'a' });
+	logfile.write( request.url+'\n');
+
 	response.end();
 });
 
